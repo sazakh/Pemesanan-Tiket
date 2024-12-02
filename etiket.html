@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-Ticket - PSM Universitas Siliwangi</title>
+  <link rel="stylesheet" href="etiket.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <img src="Gambar/logo.png" alt="Logo" class="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gettiket.html">Ticket</a></li>
+        <li><a href="listsong.html">List Song</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+       <!-- Audio Element for Background Music -->
+       <audio id="background-music" loop autoplay>
+        <source src="gamelan.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+
+  <!-- Main Content for e-Ticket -->
+  <main>
+    <div class="ticket-container">
+      <h1>e-Ticket Pembayaran Berhasil!</h1>
+
+      <!-- Gambar e-Ticket dengan overlay informasi -->
+      <div class="ticket-image-container">
+        <img src="e-tiket.png" alt="e-Ticket Template" class="ticket-image">
+        <div class="ticket-info">
+          <p><strong>Tiket:</strong> <span id="ticket-count">-</span></p>
+          <p><strong>Total:</strong> <span id="total-payment">-</span></p>
+        </div>
+      </div>
+
+      <div class="download-section">
+        <button id="download-ticket" class="download-btn">Unduh e-Ticket</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2024 PSM Universitas Siliwangi</p>
+  </footer>
+
+  <script>
+    // Ambil data dari localStorage dan tampilkan di halaman
+    window.onload = () => {
+      const ticketCount = localStorage.getItem('ticketCount') || 1;
+      const totalAmount = localStorage.getItem('totalAmount') || 0;
+
+      document.getElementById('ticket-count').textContent = ticketCount;
+      document.getElementById('total-payment').textContent = `Rp ${parseInt(totalAmount).toLocaleString('id-ID')}`;
+    };
+
+    // Fungsi untuk mengunduh e-ticket sebagai gambar
+    document.getElementById('download-ticket').addEventListener('click', () => {
+      const ticketCanvas = document.createElement('canvas');
+      const ticketImage = document.querySelector('.ticket-image-container');
+      const ctx = ticketCanvas.getContext('2d');
+
+      // Mengatur ukuran canvas agar sesuai dengan ukuran gambar e-Ticket
+      ticketCanvas.width = ticketImage.offsetWidth;
+      ticketCanvas.height = ticketImage.offsetHeight;
+
+      // Menggambar gambar template e-Ticket pada canvas
+      const img = new Image();
+      img.src = document.querySelector('.ticket-image').src;
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, ticketCanvas.width, ticketCanvas.height);
+
+        // Menambahkan teks pada gambar (informasi tiket)
+        ctx.font = '10px Poppins'; 
+        ctx.fillStyle = 'black'; 
+        const textX = ticketCanvas.width - 80; // Adjust X coordinate 
+        const textY = ticketCanvas.height - 50; // Adjust Y coordinate 
+        ctx.fillText(`Jumlah Tiket: ${document.getElementById('ticket-count').textContent}`, textX, textY - 15); ctx.fillText(`Total: ${document.getElementById('total-payment').textContent}`, textX, textY);
+
+        // Mengunduh gambar dengan informasi tiket
+        const link = document.createElement('a');
+        link.href = ticketCanvas.toDataURL('image/png');
+        link.download = 'eticket.png';
+        link.click();
+      };
+    });
+  </script>
+</body>
+</html>

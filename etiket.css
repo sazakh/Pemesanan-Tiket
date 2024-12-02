@@ -1,0 +1,112 @@
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf5e6;
+    color: #333;
+    overflow: auto;
+}
+
+header {
+    background-color: #004d00;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    height: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #FFD700;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004d00;
+    color: white;
+    margin-top: 50px;
+}
+
+/* e-Ticket Styling */
+main {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #553d1d;
+}
+
+.ticket-container {
+    max-width: 400px;
+    margin: 3px auto;
+    padding: 20px;
+    background-color: #fff8e5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-image-container {
+    position: relative;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+.ticket-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ticket-info {
+    position: absolute;
+    bottom: 30px; /* Mengatur jarak dari bagian bawah */
+    right: 5px; /* Mengatur jarak dari sisi kanan */
+    color: #004d00;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.ticket-info p {
+    margin: 5px 0;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #553d1d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.download-btn:hover {
+    background-color: #816540;
+}

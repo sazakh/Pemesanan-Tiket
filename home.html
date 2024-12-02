@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bahana Sorai Nusantara</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="Gambar/logo.png" alt="Logo" class="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gettiket.html">Ticket</a></li>
+        <li><a href="listsong.html">List Song</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <img src="Gambar/nusantara.png" alt="Deskripsi Gambar" class="image-below-header">
+       <!-- Audio Element for Background Music -->
+       <audio id="background-music" loop autoplay>
+        <source src="gamelan.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+
+  <section id="hero">
+    <h1 class="8th">The 8th Annual Concert Siliwangi University Choir</h1>
+    <p>Merayakan Keberagaman dan Persatuan adalah simfoni dari jutaan suara yang menyatukan seluruh <br>warna budaya Nusantara. Setiap lagu adalah untaian kisah yang tak selalu bisa diucapkan, tetapi<br> terasa dalam alunan nada yang mengalir dari hati. </p>
+    <!-- Video Slider -->
+    <div class="video-slider-container">
+      <button class="slide-button prev" onclick="moveSlide(-1)">&#10094;</button>
+      <div class="video-slider">
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 4.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 5.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 6.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 7.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 8.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="slide">
+              <video width="50%" autoplay muted loop>
+                  <source src="Video 9.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+      </div>
+      <button class="slide-button next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+
+    <h1 class="Bahana">Bahana Sorai Nusantara</h1>
+    <!-- Countdown section -->
+    <div id="countdown">
+      <div><span id="days">0</span> Days</div>
+      <div><span id="hours">0</span> Hours</div>
+      <div><span id="minutes">0</span> Min</div>
+      <div><span id="seconds">0</span> Sec</div>
+    </div>
+
+    <div class="buttons">
+      <button onclick="location.href='gettiket.html'">Get Ticket</button>
+      <button onclick="location.href='listsong.html'">List Song</button>
+    </div>
+  </section>
+  
+  <img src="Gambar/bangunan.png" alt="Deskripsi Gambar" class="image-below-section">
+
+  <footer>
+    <p>&copy; 2024 Siliwangi University Choir</p>
+  </footer>
+
+  <!-- Link to external JavaScript file -->
+  <script src="script.js"></script>
+  <script src="about.js"></script>
+</body>
+</html>

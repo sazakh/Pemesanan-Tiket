@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Ticket</title>
+  <link rel="stylesheet" href="gettiket.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="Gambar/logo.png" alt="Logo" class="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gettiket.html">Ticket</a></li>
+        <li><a href="listsong.html">List Song</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <audio id="background-music" loop autoplay>
+    <source src="gamelan.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <h1 class="judul">Get Your Ticket</h1>
+
+  <main class="ticket-page">
+    <div class="ticket-container">
+      <div class="dropdown">
+        <label for="event-select">Concert Bahana Sorai Nusantara</label>
+        <select id="event-select">
+          <option value="concert1">Concert Bahana Sorai Nusantara</option>
+        </select>
+      </div>
+      <div class="dropdown">
+        <label for="date-select">Saturday, 21 Desember 2024</label>
+        <select id="date-select">
+          <option value="nov23">Saturday, 21 Desember 2024</option>
+        </select>
+      </div>
+      <div class="dropdown">
+        <label for="ticket-select">Select Number of Tickets</label>
+        <select id="ticket-select">
+          <option value="1" selected>1 Ticket</option>
+          <option value="2">2 Tickets</option>
+          <option value="3">3 Tickets</option>
+          <option value="4">4 Tickets</option>
+          <option value="5">5 Tickets</option>
+          <option value="6">6 Tickets</option>
+        </select>
+      </div>
+
+      <div class="ticket-price">
+        <p>Total Price: <span id="total-price">Rp 35.000</span></p>
+      </div>
+
+      <div class="seat-map">
+        <h2>Select Your Seat:</h2>
+        <div class="seat-legend">
+          <span class="available">Available</span>
+          <span class="taken">Taken</span>
+        </div>
+        <div id="seat-grid" class="grid"></div>
+      </div>
+
+      <div class="confirm">
+        <button id="confirm-button" disabled>Confirm Selection</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 Siliwangi University Choir</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

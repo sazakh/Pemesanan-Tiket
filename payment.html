@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Metode Pembayaran</title>
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="Gambar/logo.png" alt="Logo" class="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gettiket.html">Ticket</a></li>
+        <li><a href="listsong.html">List Song</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+     <!-- Audio Element for Background Music -->
+     <audio id="background-music" loop autoplay>
+        <source src="gamelan.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+
+  <!-- Pop-up Overlay for Payment Selection -->
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup-box">
+      <!-- Close button -->
+      <span class="close-btn" id="close-btn">&times;</span>
+      <h1>Pilih Metode Pembayaran</h1>
+      <div class="payment-method">
+        <h3>Transfer Virtual Account</h3>
+        <label class="payment-option">
+          <input type="radio" name="payment" value="bri">
+          <img src="Gambar/bri.png" alt="BRI">
+          Bank BRI
+        </label>
+        <label class="payment-option">
+          <input type="radio" name="payment" value="mandiri">
+          <img src="Gambar/mandiri.png" alt="Mandiri">
+          Bank Mandiri
+        </label>
+      </div>
+
+      <div class="summary">
+        <h3>Rincian Pembayaran</h3>
+        <div class="summary-item">
+          <span>Subtotal</span>
+          <span id="subtotal"></span>
+        </div>
+        <div class="summary-item summary-total">
+          <span>Total Pembayaran</span>
+          <span id="total-payment"></span>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button id="pay-button" class="pay-button">Bayar Invoice</button>
+        <button id="cancel-button" class="cancel-button">Batal</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Siliwangi University Choir</p>
+  </footer>
+
+  <script>
+    const ticketPrice = 35000;
+    const quantity = localStorage.getItem('ticketCount') || 1;
+    const totalPrice = ticketPrice * quantity;
+
+    document.getElementById('total-payment').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+    document.getElementById('subtotal').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+    // Simpan data pembayaran ke localStorage
+    localStorage.setItem('paymentStatus', 'pending');
+    localStorage.setItem('ticketCount', quantity);
+    localStorage.setItem('totalAmount', totalPrice);
+
+    // Menampilkan Pop-up saat halaman dimuat
+    window.onload = () => {
+      document.getElementById('popup-overlay').style.display = 'flex';
+    };
+
+    // Fungsi untuk menutup pop-up setelah pembayaran berhasil
+    document.getElementById('pay-button').addEventListener('click', async () => {
+      const selectedPayment = document.querySelector('input[name="payment"]:checked');
+      if (!selectedPayment) {
+        alert('Silakan pilih metode pembayaran!');
+        return;
+      }
+
+      const paymentMethod = selectedPayment.value;
+      // Simulasikan pembayaran berhasil
+      localStorage.setItem('paymentStatus', 'success');
+
+      // Menutup pop-up dan pindah ke halaman e-ticket
+      document.getElementById('popup-overlay').style.display = 'none';
+      window.location.href = 'etiket.html';
+    });
+
+    // Fungsi untuk menutup pop-up ketika tombol "Batal" ditekan
+    document.getElementById('cancel-button').addEventListener('click', () => {
+      document.getElementById('popup-overlay').style.display = 'none';
+      window.location.href = 'gettiket.html';
+    });
+
+    // Fungsi untuk menutup pop-up ketika tombol "X" ditekan
+    document.getElementById('close-btn').addEventListener('click', () => {
+      document.getElementById('popup-overlay').style.display = 'none';
+      window.location.href = 'gettiket.html';
+    });
+  </script>
+</body>
+</html>

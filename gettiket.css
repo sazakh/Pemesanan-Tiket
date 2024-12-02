@@ -1,0 +1,168 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf5e6;
+    color: #333;
+    overflow: auto;
+  }
+  
+  header {
+    background-color: #004d00;
+    color: white;
+    padding: 5px 20px; /* Tambahkan jarak dari tepi */
+    display: flex;
+    justify-content: space-between; /* Logo di kiri, <ul> di kanan */
+    align-items: center; /* Sejajarkan vertikal */
+}
+
+header .Logo {
+    width: 50px; 
+}
+
+header ul {
+    list-style: none; /* Hilangkan bullet */
+    display: flex; /* Susun secara horizontal */
+    gap: 20px; /* Tambahkan jarak antar item */
+    margin: 0; /* Hilangkan margin bawaan */
+    padding: 0; /* Hilangkan padding bawaan */
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    color: #FFD700; /* Ubah warna saat hover */
+}
+
+.judul {
+    color: #004d00; /* Warna hijau */
+    text-align: center; /* Menyelaraskan teks di tengah */
+    font-size: 2rem; /* Ukuran font (sesuaikan sesuai kebutuhan) */
+    margin-top: 20px; /* Menambahkan jarak di atas judul */
+}
+
+   .ticket-container {
+    max-width: 400px;
+    margin: auto;
+    background-color: #fff8e5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .seat-map {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .seat-legend {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .seat-legend span {
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .available {
+    color: #4caf50;
+  }
+  
+  .taken {
+    color: #d32f2f;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Jumlah kolom */
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%; /* Membuat bentuk lingkaran */
+    background-color: #ccc;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .seat.available {
+    background-color: #4caf50;
+  }
+  
+  .seat.taken {
+    background-color: #d32f2f;
+    cursor: not-allowed;
+  }
+  
+  .seat.selected {
+    background-color: #ffd700;
+    transform: scale(1.2); /* Membesarkan saat dipilih */
+  }
+  
+  .confirm {
+    display: flex; /* Aktifkan flexbox */
+    justify-content: center; /* Atur elemen agar di tengah secara horizontal */
+    align-items: center; /* Atur elemen agar di tengah secara vertikal */
+    margin-top: 40px; /* Jarak atas */
+}
+
+#confirm-button {
+    padding: 10px 20px;
+    background-color: #82B78C;
+    color: rgb(46, 46, 46);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Menambahkan transisi untuk box-shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan dengan offset 0px, blur 8px, dan transparansi 0.2 */
+}
+
+#confirm-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none; /* Hilangkan bayangan saat tombol dinonaktifkan */
+}
+
+#confirm-button:hover:not(:disabled) {
+    color: white;
+    background-color: #396d47;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Bayangan lebih besar saat hover */
+}
+
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004d00;
+    color: white;
+  }
+  
